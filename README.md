@@ -1,2 +1,61 @@
 # downloadmanager
-extend the system service DownloadManager with pauseDownload and resumeDownload 
+
+[中文Readme(Zh_cn)](https://github.com/redleaf2002/magic_imageloader_network/blob/master/README_Zh_cn.md)
+
+Extend the system service DownloadManager with pauseDownload and resumeDownload. We can use this library like System "DownloadManager"
+
+## Features
+1. Support Pause and Resume to download
+2. Support all functions of system downloadmanager 
+3. Support url icon 
+
+
+## Add downloadmanager to your project
+
+### download_manager.aar 
+```java
+Place download_manager.aar into the libs of your project. Get the jar from the directory 'download_arr'
+```
+### Gradle:
+```java
+compile 'com.leaf:downloadmanager:1.0.0'
+```
+
+### Maven
+```java
+<dependency>
+  <groupId>com.leaf</groupId>
+  <artifactId>downloadmanager</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
+```
+
+## Usage:
+   
+### 1.permission
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+### 2.code
+```java
+
+    public static void download(Context mContext, String videoUrl, String iconUrl, String userAgent, String title, String fileName, String mimeType) {
+        if (TextUtils.isEmpty(videoUrl)) {
+            return;
+        }
+        String url = videoUrl;
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request req = new DownloadManager.Request(uri);
+        req.addRequestHeader("User-Agent", userAgent);
+        req.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+        req.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        req.setDestinationInExternalFilesDir(mContext, Environment.DIRECTORY_DOWNLOADS, fileName);
+        req.setTitle(title);
+        req.setIconUrl(iconUrl);
+        req.setDescription("click and open");
+        req.setMimeType(mimeType);
+        DownloadManager.getInstance(mContext).enqueue(req);
+    }
+
+```
