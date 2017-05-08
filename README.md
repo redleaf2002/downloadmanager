@@ -1,13 +1,13 @@
 # downloadmanager
 
-[中文Readme(Zh_cn)](https://github.com/redleaf2002/magic_imageloader_network/blob/master/README_Zh_cn.md)
+[中文Readme(Zh_cn)](https://github.com/redleaf2002/downloadmanager/blob/master/README_Zh_cn.md)
 
 Extend the system service DownloadManager with pauseDownload and resumeDownload. We can use this library like System "DownloadManager"
 
 ## Features
 1. Support Pause and Resume to download
 2. Support all functions of system downloadmanager
-3. Support url icon
+3. Support url icon 
 
 ## Add downloadmanager to your project
 
@@ -53,7 +53,6 @@ compile 'com.leaf:downloadmanager:1.0.0'
    DownloadManager.getInstance(mContext).removeAll();
 ```
 ```java
-  Context context = VideoApplication.getAppContext();
   String selection = Downloads.Impl.COLUMN_STATUS + " = " + Downloads.Impl.STATUS_SUCCESS;
   String orderBy = Downloads.Impl._ID + " DESC";
   Cursor cursor = context.getContentResolver().query(Downloads.Impl.CONTENT_URI, null, selection, null, orderBy);
