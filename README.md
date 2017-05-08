@@ -1,6 +1,6 @@
 # downloadmanager
 
-[中文Readme(Zh_cn)](https://github.com/redleaf2002/downloadmanager/blob/master/README_Zh_cn.md)
+[中文Readme(Zh_cn)](https://github.com/redleaf2002/downloadmanager/blob/master/readme_zh.md)
 
 Extend the system service DownloadManager with pauseDownload and resumeDownload. We can use this library like System "DownloadManager"
 
