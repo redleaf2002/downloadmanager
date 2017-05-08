@@ -1,0 +1,50 @@
+<manifest package="com.leaf.downloads"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+
+
+    <application>
+
+        <provider
+            android:name="com.leaf.downloads.DownloadProvider"
+            android:authorities="leaf_downloads"
+            android:exported="false">
+        </provider>
+
+        <service
+            android:name="com.leaf.downloads.DownloadService"/>
+
+        <receiver
+            android:name="com.leaf.downloads.DownloadReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.UID_REMOVED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.leaf.downloads.action.DOWNLOAD_HIDE"/>
+                <action android:name="com.leaf.downloads.action.DOWNLOAD_COMPLETE"/>
+                <action android:name="com.leaf.downloads.action.DOWNLOAD_LIST"/>
+                <action android:name="com.leaf.downloads.action.DOWNLOAD_OPEN"/>
+                <action android:name="android.intent.action.DOWNLOAD_CANCEL"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
