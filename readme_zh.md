@@ -11,7 +11,7 @@
 
 ### download_manager.aar
 ```java
-获取'download_arr'文件
+在目录download_arr下获取aar文件 加入项目中
 ```
 ### Gradle:
 ```java
