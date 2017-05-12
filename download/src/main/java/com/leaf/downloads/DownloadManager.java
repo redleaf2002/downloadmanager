@@ -1163,6 +1163,10 @@ public class DownloadManager {
         return file;
     }
 
+    public long getDownloadSpeed(long id) {
+        return DownloadNotifier.getDownloadSpeed(id);
+    }
+
     public int pauseDownload(long... ids) {
         if (ids.length <= 0) {
             return -1;

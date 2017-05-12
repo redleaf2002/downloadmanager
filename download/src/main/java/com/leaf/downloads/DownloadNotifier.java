@@ -61,7 +61,7 @@ public class DownloadNotifier {
      * @see #buildNotificationTag(DownloadInfo)
      */
     private final HashMap<String, Long> mActiveNotifs = Maps.newHashMap();
-    private final HashMap<Long, Long> mDownloadSpeed = new HashMap<>();
+    private static final HashMap<Long, Long> mDownloadSpeed = new HashMap<>();
     private final HashMap<Long, Long> mDownloadTouch = new HashMap<>();
     private static final String TAG = "DownloadNotifier";
     private static final boolean DEBUG = Constants.LOGV;
@@ -85,6 +85,13 @@ public class DownloadNotifier {
                 mDownloadTouch.remove(id);
             }
         }
+    }
+
+    public static long getDownloadSpeed(long id) {
+        if (mDownloadSpeed.containsKey(id)) {
+            return mDownloadSpeed.get(id);
+        }
+        return 0;
     }
 
     /**

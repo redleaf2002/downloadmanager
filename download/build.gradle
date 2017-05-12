@@ -9,7 +9,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.1"
 
     }
     buildTypes {
@@ -27,14 +27,14 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     provided 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    provided 'com.android.support.test.espresso:espresso-core:2.2.2'
 }
 
 publish {
     userOrg = 'redleaf2002'
     groupId = 'com.leaf'
     artifactId = 'downloadmanager'
-    publishVersion = '1.0.0'
+    publishVersion = '1.1.0'
     desc = 'extend the system service DownloadManager'
     website = 'https://github.com/redleaf2002/downloadmanager'
 }
