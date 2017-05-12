@@ -6,7 +6,7 @@ Extend the system service DownloadManager with pauseDownload and resumeDownload.
 
 ## Features
 1. Support Pause and Resume to download
-2. Support get downloading speend
+2. Support get downloading speed
 3. Support all functions of system downloadmanager
 4. Support url icon 
 
