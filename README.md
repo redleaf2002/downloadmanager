@@ -6,18 +6,22 @@ Extend the system service DownloadManager with pauseDownload and resumeDownload.
 
 ## Features
 1. Support Pause and Resume to download
-2. Support all functions of system downloadmanager
-3. Support url icon 
+2. Support get downloading speend
+3. Support all functions of system downloadmanager
+4. Support url icon 
 
 ## Add downloadmanager to your project
-
+Add the following code snippet in build.gralde
+```java
+  compile 'com.android.support.test.espresso:espresso-core:2.2.2'
+```
 ### download_manager.aar
 ```java
-Place download_manager.aar into the libs of your project. Get the jar from the directory 'download_arr'
+Place download_110.aar into the libs of your project. Get the jar from the directory 'download_arr'
 ```
 ### Gradle:
 ```java
-compile 'com.leaf:downloadmanager:1.0.0'
+    compile 'com.leaf:downloadmanager:1.1.0'
 ```
 
 ### Maven
@@ -48,6 +52,9 @@ compile 'com.leaf:downloadmanager:1.0.0'
 ```
 ```java
    DownloadManager.getInstance(mContext).restartDownload(downloadId);
+```
+```java
+   DownloadManager.getInstance(mContext).getDownloadSpeed(downloadId);
 ```
 ```java
    DownloadManager.getInstance(mContext).removeAll();
