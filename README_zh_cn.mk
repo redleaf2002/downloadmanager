@@ -1,19 +1,17 @@
 # downloadmanager
 
-[中文Readme(Zh_cn)](https://github.com/redleaf2002/downloadmanager/blob/master/readme_zh.md)
+扩展了android6.0系统的下载管理模块，增加了暂停和继续下载的功能。使用方式和原来系统的下载模块一样。
 
-Extend the system service DownloadManager with pauseDownload and resumeDownload. We can use this library like System "DownloadManager"
+## 特点
+1. 支持暂停下载和继续下载
+2. 支持6.0系统的下载管理模块
+3. 增加下载文件相关的icon 可以在下载的时候显示对于的图标
 
-## Features
-1. Support Pause and Resume to download
-2. Support all functions of system downloadmanager
-3. Support url icon 
-
-## Add downloadmanager to your project
+## 加入到项目
 
 ### download_manager.aar
 ```java
-Place download_manager.aar into the libs of your project. Get the jar from the directory 'download_arr'
+获取'download_arr'文件
 ```
 ### Gradle:
 ```java
@@ -30,13 +28,13 @@ compile 'com.leaf:downloadmanager:1.0.0'
 </dependency>
 ```
 
-## Usage:
+## 使用:
 
-### 1.permission
+### 1.增加网络权限
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-### 2.some common methods
+### 2.一些常用的方法
 ```java
    DownloadManager.getInstance(mContext).pauseDownload(downloadId);
 ```
@@ -53,14 +51,15 @@ compile 'com.leaf:downloadmanager:1.0.0'
    DownloadManager.getInstance(mContext).removeAll();
 ```
 ```java
+ 
   String selection = Downloads.Impl.COLUMN_STATUS + " = " + Downloads.Impl.STATUS_SUCCESS;
   String orderBy = Downloads.Impl._ID + " DESC";
   Cursor cursor = context.getContentResolver().query(Downloads.Impl.CONTENT_URI, null, selection, null, orderBy);
 
 ```
 
-### 3.sample
-like usage of system downloadmanager
+### 3.例子 
+和使用系统的下载模块是一样的
 ```java
     public static void download(Context mContext, String videoUrl, String iconUrl, String userAgent, String title, String fileName, String mimeType) {
         if (TextUtils.isEmpty(videoUrl)) {
