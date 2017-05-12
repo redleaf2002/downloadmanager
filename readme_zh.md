@@ -4,10 +4,13 @@
 
 ## 特点
 1. 支持暂停下载和继续下载
-2. 支持6.0系统的下载管理模块
-3. 增加下载文件相关的icon 可以在下载的时候显示对于的图标
+2. 支持获取下载速度
+3. 支持6.0系统的下载管理模块
+4. 增加下载文件相关的icon 可以在下载的时候显示对于的图标
 
 ## 加入到项目
+首先在build.gradle文件中加入
+compile 'com.android.support.test.espresso:espresso-core:2.2.2'
 
 ### download_manager.aar
 ```java
@@ -15,7 +18,7 @@
 ```
 ### Gradle:
 ```java
-compile 'com.leaf:downloadmanager:1.0.0'
+compile 'com.leaf:downloadmanager:1.1.0'
 ```
 
 ### Maven
@@ -23,7 +26,7 @@ compile 'com.leaf:downloadmanager:1.0.0'
 <dependency>
   <groupId>com.leaf</groupId>
   <artifactId>downloadmanager</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -49,6 +52,9 @@ compile 'com.leaf:downloadmanager:1.0.0'
 ```
 ```java
    DownloadManager.getInstance(mContext).removeAll();
+```
+```java
+   DownloadManager.getInstance(mContext).getDownloadSpeed(downloadId);
 ```
 ```java
  
